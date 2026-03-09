@@ -1,4 +1,112 @@
-Azure Databricks Streaming Project with Event Hub
+# Azure Databricks Streaming Project with Event Hub
+
+End-to-end real-time data engineering pipeline simulating an Uber-like ride confirmation system.
+The project demonstrates how to build a modern streaming data platform using the Azure ecosystem
+and Databricks with PySpark Structured Streaming.
+
+ARCHITECTURE
+
+Web Application
+      │
+      ▼
+Azure Event Hub (Kafka Streaming)
+      │
+      ▼
+Azure Data Factory (Metadata Ingestion)
+      │
+      ▼
+Azure Data Lake Storage (Bronze Layer)
+      │
+      ▼
+Azure Databricks (PySpark Structured Streaming)
+      │
+      ▼
+Medallion Architecture
+      │
+      ▼
+Star Schema Data Model
+
+DATA FLOW
+
+Web App → Event Hub → Databricks Streaming → Bronze Layer → Silver Layer → Gold Layer
+
+AZURE RESOURCES
+
+Resource Group
+ ├── Azure Databricks
+ ├── Azure Data Factory
+ ├── Azure Event Hub
+ ├── Azure Data Lake Storage
+ └── Access Connector for Databricks
+
+MEDALLION ARCHITECTURE
+
+Bronze Layer
+    Raw streaming data from Event Hub
+
+Silver Layer
+    Cleaned and structured data
+
+Gold Layer
+    Analytics-ready dimensional model
+
+STREAMING PIPELINE (Databricks)
+
+rides_raw
+     │
+     ▼
+stg_rides
+     │
+     ▼
+silverOneBigTable
+     │
+     ├── dim_driver
+     ├── dim_passenger
+     ├── dim_vehicle
+     ├── dim_payment
+     ├── dim_booking
+     ├── dim_location
+     └── fact
+
+STAR SCHEMA MODEL
+
+Fact Table
+    fact
+
+Dimension Tables
+    dim_passenger
+    dim_driver
+    dim_vehicle
+    dim_payment
+    dim_booking
+    dim_location
+
+KEY FEATURES
+
+- Real-time ride event streaming using Azure Event Hub
+- Metadata-driven ingestion using Azure Data Factory
+- PySpark Structured Streaming in Azure Databricks
+- Medallion architecture (Bronze → Silver → Gold)
+- Star schema data modeling
+- Slowly Changing Dimensions (SCD Type 2)
+- Metadata-driven SQL transformations using Jinja templates
+
+TECHNOLOGIES
+
+Python
+PySpark
+Spark Structured Streaming
+Azure Event Hub
+Azure Data Factory
+Azure Data Lake Storage (ADLS)
+Azure Databricks
+Delta Lake
+Jinja
+GitHub
+
+GITHUB REPOSITORY
+
+https://github.com/ziatily2/Azure-Databricks-Streaming-Project-with-Event-HubAzure Databricks Streaming Project with Event Hub
 
 End-to-end Real-Time Data Engineering Pipeline simulating a ride confirmation system similar to Uber.
 The project demonstrates how to build a modern streaming data platform using Azure services and Databricks.
@@ -306,4 +414,5 @@ Ilyas
 
 Data Engineering Project
 Azure + Databricks + Streaming
+
 
